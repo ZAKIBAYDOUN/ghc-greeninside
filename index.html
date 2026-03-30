@@ -1,0 +1,2732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Hill Canarias — Shareholder Portal</title>
+<meta name="description" content="GHC Investor Portal — Q1 2026 Update">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Green Hill Canarias — Q1 2026 Shareholder Update">
+<meta property="og:description" content="EU-GMP Cannabis Manufacturing Facility — Tenerife, Canary Islands">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/x-icon" href="PORTAL_V4/photos/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="PORTAL_V4/photos/favicon_32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="PORTAL_V4/photos/favicon_16.png">
+
+<!-- Google Fonts: Inter for premium typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Chart.js for interactive financial charts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<!-- Model Viewer -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+<style>
+/* ============================================================
+   GREEN HILL CANARIAS — INVESTOR PORTAL V9
+   Premium Interactive Charts + 3-Act Visual Journey + Tabbed Navigation
+   Brand: #1a3a2a / #2d5a3f / #c4a035 / #f5f5f0
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ghc-primary: #1a3a2a;
+  --ghc-secondary: #2d5a3f;
+  --ghc-gold: #c4a035;
+  --ghc-bg: #f5f5f0;
+  --ghc-dark: #1a3a2a;
+  --ghc-text-light: #f5f5f0;
+  --ghc-text-dark: #1a3a2a;
+  --ghc-positive: #4a7c59;
+  --ghc-error: #b85450;
+  --ghc-light-overlay: rgba(255,255,255,0.06);
+  --ghc-dark-overlay: rgba(26,58,42,0.08);
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', monospace;
+  --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ghc-secondary) var(--ghc-bg);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--ghc-bg);
+  color: var(--ghc-text-dark);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.3px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* SVG Noise Texture Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/><feColorMatrix in="noise" type="saturate" values="0"/></filter><rect width="100" height="100" fill="rgba(26,58,42,0.015)" filter="url(%23n)"/></svg>');
+  pointer-events: none;
+  z-index: 1;
+}
+
+a { color: var(--ghc-secondary); text-decoration: none; transition: 0.2s; }
+a:hover { color: var(--ghc-gold); }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--ghc-gold);
+  outline-offset: 3px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ---- STICKY NAV ---- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(26, 58, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(196, 160, 53, 0.2);
+  transition: transform 0.4s var(--transition-smooth), background 0.3s;
+}
+
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+
+.nav-logo { height: 32px; width: auto; filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)); }
+
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+}
+
+.nav-links a {
+  color: rgba(245, 245, 240, 0.85);
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 0; right: 0;
+  height: 2px;
+  background: var(--ghc-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--transition-smooth);
+}
+
+.nav-links a:hover { color: var(--ghc-text-light); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span {
+  display: block; width: 24px; height: 2px; background: var(--ghc-text-light);
+  margin: 5px 0; transition: 0.3s;
+}
+
+.nav-hidden { transform: translateY(-100%); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 60px; left: 0; right: 0; background: rgba(26, 58, 42, 0.98);
+    padding: 16px 24px; gap: 16px; backdrop-filter: blur(8px);
+  }
+  .hamburger { display: flex; align-items: center; justify-content: center; }
+}
+
+/* ---- LOGIN SCREEN ---- */
+.login-screen {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 2000;
+  background: linear-gradient(135deg, #1a3a2a 0%, #2d5a3f 50%, #1a3a2a 100%);
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  transition: opacity 0.8s, visibility 0.8s;
+  overflow: hidden;
+}
+
+.login-screen::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(196, 160, 53, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(74, 124, 89, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 0%, rgba(196, 160, 53, 0.04) 0%, transparent 40%);
+  animation: gradientShift 15s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(10px, -10px); }
+  50% { transform: translate(-5px, 10px); }
+  75% { transform: translate(-10px, -5px); }
+}
+
+.login-content {
+  position: relative; z-index: 10;
+  text-align: center;
+}
+
+.login-logo {
+  width: 140px; margin-bottom: 32px;
+  animation: logoGlow 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(196, 160, 53, 0.3));
+}
+
+@keyframes logoGlow {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(196, 160, 53, 0.3)); }
+  50% { filter: drop-shadow(0 0 30px rgba(196, 160, 53, 0.5)); }
+}
+
+.login-tagline {
+  color: var(--ghc-gold); font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; margin-bottom: 8px; font-weight: 600;
+  animation: fadeInUp 0.8s var(--transition-smooth) 0.2s both;
+}
+
+.login-subtitle {
+  color: var(--ghc-text-light); font-size: 28px; font-weight: 600;
+  margin-bottom: 40px; opacity: 0.95;
+  animation: fadeInUp 0.8s var(--transition-smooth) 0.3s both;
+  letter-spacing: -0.5px;
+}
+
+.login-form {
+  display: flex; gap: 12px; align-items: center;
+  animation: fadeInUp 0.8s var(--transition-smooth) 0.4s both;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 20px;
+  border-radius: 12px;
+}
+
+.login-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 16px;
+  width: 280px;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.login-input::placeholder { color: rgba(255, 255, 255, 0.4); }
+.login-input:focus { outline: none; }
+
+.login-btn {
+  background: var(--ghc-gold);
+  color: var(--ghc-primary);
+  border: none;
+  padding: 10px 32px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.login-btn:hover {
+  background: #d4b040;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(196, 160, 53, 0.3);
+}
+
+.login-btn:active { transform: translateY(0); }
+
+.login-error {
+  color: #ff6b6b; margin-top: 16px; font-size: 14px; display: none;
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+/* ---- TAB BAR ---- */
+.tab-bar {
+  position: fixed; top: 60px; left: 0; right: 0; z-index: 999;
+  background: rgba(26, 58, 42, 0.90);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(196, 160, 53, 0.2);
+  display: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tab-bar.visible { display: block; }
+
+.tab-buttons {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; gap: 0; list-style: none;
+}
+
+.tab-btn {
+  background: transparent;
+  color: rgba(245, 245, 240, 0.65);
+  border: none;
+  padding: 16px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  position: relative;
+}
+
+.tab-btn:hover { color: rgba(245, 245, 240, 0.9); }
+
+.tab-btn.active {
+  color: var(--ghc-gold);
+  border-bottom-color: var(--ghc-gold);
+}
+
+@media (max-width: 768px) {
+  .tab-buttons { padding: 0 16px; }
+  .tab-btn { padding: 12px 16px; font-size: 13px; }
+}
+
+/* ---- TAB CONTENT ---- */
+.tab-content {
+  display: none;
+  margin-top: 60px;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeInTab 0.3s var(--transition-smooth);
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---- SECTIONS ---- */
+section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 2;
+}
+
+section:first-of-type { padding-top: 40px; }
+
+.section-dark {
+  background: var(--ghc-primary);
+  color: var(--ghc-text-light);
+}
+
+.section-dark::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(196, 160, 53, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(74, 124, 89, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.section-label {
+  color: var(--ghc-gold);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  max-width: 800px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 56px;
+  max-width: 680px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ---- WELCOME SECTION ---- */
+.welcome-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+/* ---- VIDEO SECTION ---- */
+.video-wrapper {
+  position: relative; max-width: 900px; margin: 0 auto 48px;
+  border-radius: 12px; overflow: hidden; background: #000;
+}
+
+.video-wrapper video { width: 100%; display: block; }
+
+.video-play-overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.3); cursor: pointer; transition: opacity 0.3s;
+}
+
+.video-play-overlay.hidden { opacity: 0; pointer-events: none; }
+
+.play-btn-circle {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--ghc-gold); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.play-btn-circle svg { width: 28px; height: 28px; fill: var(--ghc-primary); margin-left: 3px; }
+
+/* ---- DASHBOARD GRID ---- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.metric-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 28px;
+  border: 1px solid rgba(26, 58, 42, 0.08);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  transition: all 0.4s var(--transition-smooth);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ghc-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.metric-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 100% 0%, rgba(196, 160, 53, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.metric-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(196, 160, 53, 0.2);
+}
+
+.metric-card:hover::before,
+.metric-card:hover::after { opacity: 1; }
+
+.metric-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ghc-secondary);
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--ghc-primary);
+  margin-bottom: 12px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.metric-detail {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.metric-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--ghc-positive), #5a8c69);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 24px;
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.2);
+}
+
+/* Hero metrics row */
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-bottom: 64px;
+}
+
+.hero-metric {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  border: 1px solid rgba(26, 58, 42, 0.08);
+  transition: all 0.3s;
+}
+
+.hero-metric:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-color: rgba(196, 160, 53, 0.3);
+}
+
+.hero-metric-value {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ghc-primary);
+  margin-bottom: 6px;
+}
+
+.hero-metric-label {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ghc-secondary);
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .hero-metrics { grid-template-columns: repeat(3, 1fr); }
+  .section-title { font-size: 40px; }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+  .metric-card { padding: 24px 20px; }
+  .metric-value { font-size: 28px; }
+  section { padding: 60px 0; }
+  section:first-of-type { padding-top: 40px; }
+}
+
+@media (max-width: 480px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .hero-metrics { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .hero-metric-value { font-size: 18px; }
+  .metric-card { padding: 20px 16px; }
+  .metric-value { font-size: 24px; }
+  .section-title { font-size: 32px; margin-bottom: 16px; }
+}
+
+/* ---- MILESTONE BAR ---- */
+.milestone-bar {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 24px 32px;
+  border: 1px solid rgba(196, 160, 53, 0.2);
+  border-left: 4px solid var(--ghc-gold);
+  margin-bottom: 64px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.milestone-date {
+  font-weight: 700;
+  color: var(--ghc-gold);
+  letter-spacing: 0.3px;
+}
+
+/* ---- FOUNDERS CARD ---- */
+.founders-card {
+  background: #fff; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 32px;
+}
+
+.founders-photo {
+  width: 100%; max-height: 420px; object-fit: cover;
+}
+
+.founders-body { padding: 32px; }
+
+.founders-quote {
+  font-size: 22px; font-style: italic; color: var(--ghc-primary);
+  margin-bottom: 8px; line-height: 1.4;
+}
+
+.founders-attribution {
+  font-size: 14px; color: var(--ghc-secondary); margin-bottom: 20px;
+}
+
+.founders-caption {
+  font-size: 14px; color: #666; margin-bottom: 16px; line-height: 1.5;
+}
+
+.founders-text { font-size: 16px; color: var(--ghc-text-dark); }
+
+/* ---- CONSTRUCTION TIMELINE ---- */
+.timeline-scroll {
+  display: flex; gap: 20px; overflow-x: auto; padding-bottom: 16px;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+}
+
+.timeline-scroll::-webkit-scrollbar { height: 6px; }
+.timeline-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 3px; }
+.timeline-scroll::-webkit-scrollbar-thumb { background: var(--ghc-secondary); border-radius: 3px; }
+
+.phase-card {
+  flex: 0 0 280px; scroll-snap-align: start;
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06); cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.phase-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+
+.phase-img { width: 100%; height: 180px; object-fit: cover; }
+
+.phase-body { padding: 16px; }
+
+.phase-label {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ghc-gold); font-weight: 700; margin-bottom: 4px;
+}
+
+.phase-date { font-size: 13px; color: var(--ghc-secondary); font-weight: 600; margin-bottom: 6px; }
+
+.phase-desc { font-size: 14px; color: #444; line-height: 1.4; }
+
+@media (max-width: 768px) {
+  .timeline-scroll { flex-direction: column; overflow-x: visible; }
+  .phase-card { flex: none; width: 100%; }
+}
+
+/* ---- 3-ACT VISUAL JOURNEY ---- */
+.journey-section { margin-bottom: 64px; }
+
+.journey-header { text-align: center; margin-bottom: 40px; }
+
+.journey-title {
+  font-size: 28px; font-weight: 800; color: var(--ghc-primary);
+  margin-bottom: 8px; letter-spacing: -0.5px;
+}
+
+.journey-subtitle {
+  font-size: 16px; color: #666; font-weight: 400; line-height: 1.5;
+}
+
+.journey-scroll {
+  display: flex; gap: 20px; overflow-x: auto; padding-bottom: 16px;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+}
+
+.journey-scroll::-webkit-scrollbar { height: 6px; }
+.journey-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 3px; }
+.journey-scroll::-webkit-scrollbar-thumb { background: var(--ghc-gold); border-radius: 3px; }
+
+.journey-card {
+  flex: 0 0 300px; scroll-snap-align: start;
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(196, 160, 53, 0.15);
+}
+
+.journey-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+
+.journey-card .phase-img { height: 200px; }
+.journey-card .phase-body { padding: 20px; }
+
+.journey-card .phase-label {
+  color: var(--ghc-gold); font-size: 12px; letter-spacing: 0.08em;
+  text-transform: uppercase; font-weight: 700; margin-bottom: 6px;
+}
+
+.journey-card .phase-date {
+  font-size: 14px; color: var(--ghc-secondary); font-weight: 600; margin-bottom: 8px;
+}
+
+.journey-card .phase-desc { font-size: 14px; color: #444; line-height: 1.5; }
+
+.journey-divider {
+  text-align: center; padding: 32px 0 16px; position: relative;
+}
+
+.journey-divider::before {
+  content: '';
+  position: absolute; top: 50%; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ghc-gold), transparent);
+}
+
+.journey-divider span {
+  position: relative; background: var(--ghc-bg); padding: 0 24px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ghc-gold);
+}
+
+@media (max-width: 768px) {
+  .journey-scroll { flex-direction: column; overflow-x: visible; }
+  .journey-card { flex: none; width: 100%; }
+  .journey-title { font-size: 22px; }
+}
+
+/* ---- 3D VIEWER ---- */
+.viewer-section { background: var(--ghc-primary); padding: 64px 0; }
+
+.viewer-wrapper {
+  max-width: 900px; margin: 0 auto; border-radius: 12px; overflow: hidden;
+  background: #111;
+}
+
+model-viewer {
+  width: 100%; height: 500px; --poster-color: transparent;
+}
+
+@media (max-width: 768px) { model-viewer { height: 350px; } }
+
+.viewer-toggle {
+  display: flex; justify-content: center; gap: 12px; margin-top: 16px;
+}
+
+.toggle-btn {
+  background: rgba(255,255,255,0.1); color: var(--ghc-text-light);
+  border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 6px;
+  font-size: 14px; cursor: pointer; transition: 0.2s;
+}
+
+.toggle-btn.active, .toggle-btn:hover {
+  background: var(--ghc-gold); color: var(--ghc-primary); border-color: var(--ghc-gold);
+}
+
+.viewer-caption {
+  text-align: center; color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 12px;
+}
+
+/* ---- CALLOUT BOXES ---- */
+.callouts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; }
+
+.callout {
+  background: #fff; border-radius: 10px; padding: 24px;
+  border-left: 4px solid var(--ghc-gold);
+}
+
+.callout-text { font-size: 15px; line-height: 1.5; color: var(--ghc-text-dark); }
+
+@media (max-width: 768px) { .callouts { grid-template-columns: 1fr; } }
+
+/* ---- FINANCIAL SECTION ---- */
+.fin-section { background: var(--ghc-primary); color: var(--ghc-text-light); }
+
+.chart-container {
+  background: rgba(255,255,255,0.06); border-radius: 16px; padding: 32px;
+  margin-bottom: 32px; backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.chart-title {
+  font-size: 16px; font-weight: 600; margin-bottom: 8px;
+}
+
+.chart-note {
+  font-size: 13px; opacity: 0.6; margin-bottom: 24px; line-height: 1.5;
+}
+
+.chart-canvas-wrap {
+  position: relative; max-width: 100%; margin: 0 auto;
+}
+
+/* Unit economics */
+.unit-econ-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+
+.unit-card {
+  background: rgba(255,255,255,0.06); border-radius: 10px; padding: 24px;
+  text-align: center;
+}
+
+.unit-value {
+  font-family: var(--font-mono); font-size: 24px; font-weight: 700;
+  color: var(--ghc-gold); margin-bottom: 6px;
+}
+
+.unit-label { font-size: 13px; opacity: 0.75; }
+.unit-context { font-size: 12px; opacity: 0.55; margin-top: 4px; }
+
+@media (max-width: 768px) {
+  .unit-econ-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Margin bar */
+.margin-display {
+  background: rgba(255,255,255,0.06); border-radius: 12px; padding: 28px 32px;
+  margin-bottom: 32px;
+}
+
+.margin-bars { margin-top: 16px; }
+
+.margin-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+
+.margin-bar-label { width: 160px; font-size: 14px; flex-shrink: 0; }
+
+.margin-bar-track { flex: 1; height: 28px; background: rgba(255,255,255,0.08); border-radius: 6px; overflow: hidden; position: relative; }
+
+.margin-bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; }
+
+.margin-bar-fill span { font-family: var(--font-mono); font-size: 13px; font-weight: 700; }
+
+/* Batch economics table */
+.batch-table {
+  width: 100%; border-collapse: collapse; margin: 24px 0;
+}
+
+.batch-table th {
+  text-align: left; padding: 14px 16px; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6;
+  border-bottom: 2px solid rgba(255,255,255,0.15);
+}
+
+.batch-table td {
+  padding: 14px 16px; font-size: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.batch-table .amount { font-family: var(--font-mono); font-weight: 600; }
+.batch-table .highlight-row td { color: var(--ghc-gold); font-weight: 700; }
+
+/* Sensitivity heatmap */
+.heatmap-grid {
+  display: grid; grid-template-columns: 140px repeat(3, 1fr); gap: 2px;
+  margin: 24px 0;
+}
+
+.heatmap-header {
+  padding: 14px 16px; text-align: center; font-size: 12px;
+  letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+}
+
+.heatmap-row-label {
+  padding: 16px; display: flex; align-items: center;
+  font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8);
+}
+
+.heatmap-cell {
+  padding: 20px 16px; text-align: center; border-radius: 6px;
+  font-family: var(--font-mono); font-size: 18px; font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.05); z-index: 2;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.heatmap-cell.base-case {
+  border: 2px solid var(--ghc-gold);
+  box-shadow: 0 0 12px rgba(196, 160, 53, 0.3);
+}
+
+/* Cost table */
+.cost-table {
+  width: 100%; border-collapse: collapse; margin-bottom: 32px;
+}
+
+.cost-table th {
+  text-align: left; padding: 12px 16px; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.cost-table td {
+  padding: 14px 16px; font-size: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.cost-table .amount { font-family: var(--font-mono); font-weight: 600; }
+
+.status-paid { color: var(--ghc-positive); font-weight: 600; }
+.status-active { color: var(--ghc-gold); font-weight: 600; }
+.status-pending { color: rgba(255,255,255,0.5); }
+
+/* Treasury */
+.treasury-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.treasury-card {
+  background: rgba(255,255,255,0.06); border-radius: 10px; padding: 24px;
+}
+
+.treasury-label { font-size: 13px; opacity: 0.6; margin-bottom: 8px; }
+
+.treasury-value { font-family: var(--font-mono); font-size: 22px; font-weight: 700; }
+
+.treasury-note { font-size: 12px; opacity: 0.5; margin-top: 4px; }
+
+@media (max-width: 768px) { .treasury-grid { grid-template-columns: 1fr; } }
+
+/* ---- Gantt Chart ---- */
+.gantt-container {
+  position: relative; overflow-x: auto; margin: 24px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gantt-row {
+  display: flex; align-items: center; margin-bottom: 8px;
+  min-width: 700px;
+}
+
+.gantt-label {
+  width: 200px; flex-shrink: 0; font-size: 13px; font-weight: 500;
+  padding-right: 16px; text-align: right; color: rgba(255,255,255,0.8);
+}
+
+.gantt-track {
+  flex: 1; height: 32px; position: relative;
+  background: rgba(255,255,255,0.04); border-radius: 4px;
+}
+
+.gantt-bar {
+  position: absolute; height: 100%; border-radius: 4px;
+  transition: opacity 0.3s;
+}
+
+.gantt-bar:hover { opacity: 0.85; }
+
+.gantt-bar-label {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  left: 8px; font-size: 11px; font-weight: 600; white-space: nowrap;
+  color: rgba(255,255,255,0.9);
+}
+
+.gantt-now-line {
+  position: absolute; top: 0; bottom: 0; width: 2px;
+  background: var(--ghc-gold); z-index: 5;
+}
+
+.gantt-now-label {
+  position: absolute; top: -20px; transform: translateX(-50%);
+  font-size: 10px; font-weight: 700; color: var(--ghc-gold);
+  letter-spacing: 0.05em; white-space: nowrap;
+}
+
+.gantt-milestone {
+  position: absolute; top: 50%; transform: translateY(-50%) rotate(45deg);
+  width: 10px; height: 10px; background: var(--ghc-gold); z-index: 4;
+}
+
+.gantt-months {
+  display: flex; min-width: 700px; margin-left: 200px; margin-bottom: 8px;
+}
+
+.gantt-month {
+  flex: 1; text-align: center; font-size: 11px; font-weight: 600;
+  color: rgba(255,255,255,0.4); letter-spacing: 0.05em; text-transform: uppercase;
+}
+
+/* ---- REGULATORY / SOP GRID ---- */
+.sop-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px; margin-bottom: 48px;
+}
+
+.sop-box {
+  border: 2px solid rgba(26,58,42,0.15); border-radius: 8px;
+  padding: 14px 12px; text-align: center; font-size: 13px;
+  color: #666; transition: 0.2s;
+}
+
+.sop-box.done {
+  background: var(--ghc-secondary); color: #fff; border-color: var(--ghc-secondary);
+}
+
+.sop-box.next {
+  border-color: var(--ghc-gold); color: var(--ghc-gold); font-weight: 600;
+}
+
+/* Sprint timeline */
+.sprint-bar {
+  display: flex; align-items: center; gap: 0; margin-bottom: 48px;
+  overflow-x: auto; padding-bottom: 8px;
+}
+
+.sprint-node {
+  display: flex; flex-direction: column; align-items: center;
+  min-width: 100px; position: relative;
+}
+
+.sprint-dot {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: rgba(26,58,42,0.15); border: 2px solid rgba(26,58,42,0.2);
+  z-index: 1;
+}
+
+.sprint-dot.done { background: var(--ghc-secondary); border-color: var(--ghc-secondary); }
+
+.sprint-dot.current { background: var(--ghc-gold); border-color: var(--ghc-gold); box-shadow: 0 0 0 4px rgba(196,160,53,0.2); }
+
+.sprint-line {
+  flex: 1; height: 2px; background: rgba(26,58,42,0.15); min-width: 40px;
+}
+
+.sprint-line.done { background: var(--ghc-secondary); }
+
+.sprint-week { font-size: 11px; font-weight: 700; margin-top: 8px; color: var(--ghc-secondary); }
+
+.sprint-label { font-size: 10px; color: #888; margin-top: 2px; text-align: center; max-width: 90px; }
+
+/* Cannaflos card */
+.cannaflos-card {
+  background: #fff; border-radius: 12px; padding: 32px;
+  border: 1px solid rgba(26,58,42,0.08);
+}
+
+.cannaflos-title { font-size: 20px; font-weight: 700; color: var(--ghc-primary); margin-bottom: 16px; }
+
+.cannaflos-stat { display: flex; gap: 24px; flex-wrap: wrap; }
+
+.cannaflos-item {
+  background: var(--ghc-bg); border-radius: 8px; padding: 16px 20px;
+  flex: 1; min-width: 200px;
+}
+
+.cannaflos-num { font-family: var(--font-mono); font-size: 28px; font-weight: 700; color: var(--ghc-primary); }
+
+.cannaflos-label { font-size: 14px; color: #555; margin-top: 4px; }
+
+/* ---- DOCUMENTS ---- */
+.docs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+.doc-card {
+  background: #fff; border-radius: 12px; padding: 24px;
+  border: 1px solid rgba(26,58,42,0.08);
+  display: flex; align-items: center; justify-content: space-between;
+  transition: box-shadow 0.2s;
+}
+
+.doc-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+.doc-info h3 { font-size: 16px; font-weight: 600; color: var(--ghc-primary); margin-bottom: 4px; }
+
+.doc-meta { font-size: 13px; color: #888; }
+
+.doc-btn {
+  background: var(--ghc-gold); color: var(--ghc-primary); border: none;
+  padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 600;
+  cursor: pointer; white-space: nowrap; transition: background 0.2s;
+  text-decoration: none; display: inline-block;
+}
+
+.doc-btn:hover { background: #d4b040; text-decoration: none; }
+
+@media (max-width: 768px) { .docs-grid { grid-template-columns: 1fr; } }
+
+.founders-only-section {
+  margin-top: 40px; padding-top: 32px;
+  border-top: 2px solid rgba(26,58,42,0.1);
+}
+
+.founders-lock-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--ghc-secondary); font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.founders-gate { display: none; }
+.founders-gate.unlocked { display: block; }
+
+/* ---- FOOTER ---- */
+.footer {
+  background: var(--ghc-primary); color: rgba(255,255,255,0.5);
+  padding: 40px 0; font-size: 14px; text-align: center;
+}
+
+.footer-logo { height: 36px; margin: 0 auto 16px; opacity: 0.6; }
+
+.footer-text { max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+.footer-cta {
+  color: var(--ghc-gold); font-size: 16px; font-weight: 600;
+  display: block; margin-top: 16px;
+}
+
+/* ---- LIGHTBOX ---- */
+.lightbox {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 3000;
+  background: rgba(0,0,0,0.92); display: none; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
+
+.lightbox-close {
+  position: absolute; top: 20px; right: 24px; color: #fff; font-size: 32px;
+  cursor: pointer; background: none; border: none; line-height: 1;
+}
+
+/* ---- ANIMATIONS ---- */
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth); }
+
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+
+/* ---- SELECTION ---- */
+::selection { background: var(--ghc-gold); color: var(--ghc-primary); }
+
+/* ---- TOUCH TARGETS ---- */
+@media (pointer: coarse) {
+  .doc-btn, .login-btn, .toggle-btn, .tab-btn { min-height: 44px; min-width: 44px; }
+  .hamburger { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+}
+
+/* ---- PREVENT HORIZONTAL OVERFLOW ---- */
+html, body { overflow-x: hidden; max-width: 100vw; }
+
+.container { overflow-wrap: break-word; word-break: break-word; }
+
+/* ---- MOBILE OVERRIDES ---- */
+@media (max-width: 480px) {
+  .cost-table { font-size: 13px; }
+  .cost-table th, .cost-table td { padding: 10px 8px; }
+  .chart-container { padding: 20px 16px; }
+  .margin-bar-label { width: 100px; font-size: 12px; }
+  .unit-econ-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .unit-card { padding: 16px; }
+  .unit-value { font-size: 20px; }
+  .treasury-value { font-size: 18px; }
+  .cannaflos-num { font-size: 22px; }
+  .founders-quote { font-size: 18px; }
+  .heatmap-grid { grid-template-columns: 100px repeat(3, 1fr); }
+  .heatmap-cell { font-size: 14px; padding: 14px 8px; }
+  .gantt-label { width: 120px; font-size: 11px; }
+  .batch-table td { padding: 10px 8px; font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ====== LOGIN SCREEN ====== -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-content">
+    <img src="PORTAL_V4/photos/ghc_logo_white.png" alt="Green Hill Canarias" class="login-logo" loading="eager">
+    <div class="login-tagline">Intelligence Rooted in Nature</div>
+    <div class="login-subtitle">Shareholder Portal &mdash; Q1 2026</div>
+    <form class="login-form" id="loginForm" onsubmit="return handleLogin(event)">
+      <label for="loginPass" class="sr-only" style="position:absolute;left:-9999px">Password</label>
+      <input type="password" id="loginPass" class="login-input" placeholder="Enter access code" autocomplete="off" aria-label="Shareholder access code">
+      <button type="submit" class="login-btn">Enter</button>
+    </form>
+    <div class="login-error" id="loginError">Invalid access code. Please try again.</div>
+  </div>
+</div>
+
+<!-- ====== NAV ====== -->
+<nav class="nav" id="mainNav" style="display:none" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <img src="PORTAL_V4/photos/ghc_logo_white.png" alt="GHC" class="nav-logo">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#tab-dashboard" class="tab-link" onclick="switchTab('dashboard', event)">Dashboard</a></li>
+      <li><a href="#tab-construction" class="tab-link" onclick="switchTab('construction', event)">Construction</a></li>
+      <li><a href="#tab-financials" class="tab-link" onclick="switchTab('financials', event)">Financials</a></li>
+      <li><a href="#tab-regulatory" class="tab-link" onclick="switchTab('regulatory', event)">Regulatory</a></li>
+      <li><a href="#tab-documents" class="tab-link" onclick="switchTab('documents', event)">Documents</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ====== TAB BAR ====== -->
+<div class="tab-bar" id="tabBar" style="display:none">
+  <ul class="tab-buttons">
+    <li><button class="tab-btn active" onclick="switchTab('dashboard')">Dashboard</button></li>
+    <li><button class="tab-btn" onclick="switchTab('construction')">Construction</button></li>
+    <li><button class="tab-btn" onclick="switchTab('financials')">Financials</button></li>
+    <li><button class="tab-btn" onclick="switchTab('regulatory')">Regulatory</button></li>
+    <li><button class="tab-btn" onclick="switchTab('documents')">Documents</button></li>
+  </ul>
+</div>
+
+<!-- ====== PORTAL CONTENT (hidden until login) ====== -->
+<div id="portalContent" style="display:none">
+
+<!-- ====== TAB 1: DASHBOARD ====== -->
+<div class="tab-content active" id="tab-dashboard">
+
+<!-- SECTION 1: WELCOME & VIDEO -->
+<section id="welcome">
+  <div class="container">
+    <div class="section-label">Q1 2026 Update</div>
+    <h1 class="welcome-title">What comes next isn't promise &mdash; it's performance.</h1>
+    <p class="section-subtitle">Welcome to your investor portal. Updated March 2026.</p>
+
+    <!-- Video embed -->
+    <div class="video-wrapper fade-in">
+      <video id="heroVideo" muted loop playsinline preload="none" poster="PORTAL_V4/photos/video_poster.jpg">
+        <source src="PORTAL_V4/video/GHC_HIGHLIGHT_50S.mp4" type="video/mp4">
+      </video>
+      <div class="video-play-overlay" id="videoOverlay" onclick="playVideo()">
+        <div class="play-btn-circle">
+          <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: DASHBOARD METRICS -->
+<section id="dashboard">
+  <div class="container">
+    <div class="section-label">Performance Dashboard</div>
+    <h2 class="section-title">Performance at a Glance</h2>
+
+    <div class="dashboard-grid fade-in">
+      <div class="metric-card">
+        <div class="metric-label">Construction</div>
+        <div class="metric-value">15.8%</div>
+        <div class="metric-detail">Certified scope (Cert N&#176;1, 32 working days). Double contractual pace.</div>
+        <span class="metric-badge">Zero defects</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">EU-GMP Compliance</div>
+        <div class="metric-value">7/19</div>
+        <div class="metric-detail">Operational processes documented. Running parallel with construction &mdash; saving approximately nine months.</div>
+        <span class="metric-badge">350% of target</span>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Financial Model</div>
+        <div class="metric-value" style="font-size:24px">&euro;2,300/kg</div>
+        <div class="metric-detail">Wholesale floor price &mdash; the lowest price ever recorded in the German market.</div>
+        <span class="metric-badge">130.4% IRR</span>
+      </div>
+    </div>
+
+    <!-- Hero Metrics Row -->
+    <div class="hero-metrics fade-in">
+      <div class="hero-metric">
+        <div class="hero-metric-value">&euro;169K</div>
+        <div class="hero-metric-label">EBITDA / Batch</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-value">&gt;70%</div>
+        <div class="hero-metric-label">Gross Margin</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-value">320 kg</div>
+        <div class="hero-metric-label">Break-even</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-value">4%</div>
+        <div class="hero-metric-label">ZEC Tax</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-value">130.4%</div>
+        <div class="hero-metric-label">IRR</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-value">&euro;17.4M</div>
+        <div class="hero-metric-label">NPV</div>
+      </div>
+    </div>
+
+    <!-- Milestone bar -->
+    <div class="milestone-bar fade-in">
+      <span class="milestone-date">27 March 2026:</span> Cert N&#176;1 payment &euro;354,876.18 processed. Construction accelerating. Ceiling Milestone &mdash; GMP installations begin once ceiling complete and installation funding committed.
+    </div>
+
+    <!-- Founders card -->
+    <div class="founders-card fade-in">
+      <img src="PORTAL_V4/photos/chris_inauguration.jpg" alt="January 2026: AJW Group Chairman Christopher Whiteside inaugurates the GHC facility site with Deputy Mayor Andr&eacute;s Mart&iacute;nez and the construction team" class="founders-photo" loading="lazy">
+      <div class="founders-body">
+        <div class="founders-quote">&ldquo;Mesmerising brilliant&rdquo;</div>
+        <div class="founders-attribution">&mdash; Christopher Whiteside, AJW Group Chairman, after visiting the construction site</div>
+        <div class="founders-caption">January 2026: AJW Group Chairman Christopher Whiteside inaugurates the GHC facility site with Deputy Mayor Andr&eacute;s Mart&iacute;nez and the construction team.</div>
+        <div style="margin:16px 0">
+          <img src="PORTAL_V4/photos/chris_flight.jpg" alt="Cape Verde to Tenerife — flight tracker, 16 January 2026" style="width:280px;border-radius:8px;opacity:0.85" loading="lazy">
+          <div style="font-size:12px;color:#888;margin-top:4px">Cape Verde to Tenerife &mdash; 16 January 2026</div>
+        </div>
+        <div class="founders-text">All three founders met on site March 2026. We are fully aligned &mdash; not in intention, but in action. All of us are actively driving this forward.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- END TAB 1 -->
+
+<!-- ====== TAB 2: CONSTRUCTION ====== -->
+<div class="tab-content" id="tab-construction">
+
+<section id="construction">
+  <div class="container">
+    <div class="section-label">Construction Progress</div>
+    <h2 class="section-title">From Volcanic Ground to Pharmaceutical Facility</h2>
+    <p class="section-subtitle">15.8% of total construction scope certified in just 32 working days. Double the contractual pace. Zero defects across all six technical validations.</p>
+
+    <!-- 3-Act Visual Journey -->
+    <div class="journey-section fade-in">
+      <div class="journey-header">
+        <div class="section-label">The Full Journey</div>
+        <div class="journey-title">From Volcanic Land to Pharmaceutical Facility</div>
+        <div class="journey-subtitle">Three years. One vision. Every step documented.</div>
+      </div>
+
+      <div class="journey-scroll">
+        <div class="journey-card" onclick="openLightbox('PORTAL_V8_PHOTOS/journey_a1_land_2023.jpg','The Land — March 2023')">
+          <img src="PORTAL_V8_PHOTOS/journey_a1_land_2023.jpg" alt="The Land — Volcanic ground, March 2023" class="phase-img" loading="lazy">
+          <div class="phase-body">
+            <div class="phase-label">Act I &mdash; The Vision</div>
+            <div class="phase-date">March 2023</div>
+            <div class="phase-desc">Volcanic ground, ocean horizon, wind turbines. Everything starts here.</div>
+          </div>
+        </div>
+        <div class="journey-card" onclick="openLightbox('PORTAL_V8_PHOTOS/journey_a2_gathering_2023.jpg','First Gathering — April 2023')">
+          <img src="PORTAL_V8_PHOTOS/journey_a2_gathering_2023.jpg" alt="First Gathering — Founders and shareholders, April 2023" class="phase-img" loading="lazy">
+          <div class="phase-body">
+            <div class="phase-label">Act I &mdash; The Vision</div>
+            <div class="phase-date">April 2023</div>
+            <div class="phase-desc">Founders and first shareholders gather. The vision takes shape.</div>
+          </div>
+        </div>
+        <div class="journey-card" onclick="openLightbox('PORTAL_V8_PHOTOS/journey_a3_steel_2024.jpg','Steel Rises — March 2024')">
+          <img src="PORTAL_V8_PHOTOS/journey_a3_steel_2024.jpg" alt="Steel Rises — Greenhouse skeleton, March 2024" class="phase-img" loading="lazy">
+          <div class="phase-body">
+            <div class="phase-label">Act II &mdash; The Greenhouse</div>
+            <div class="phase-date">March 2024</div>
+            <div class="phase-desc">Greenhouse skeleton &mdash; steel frame against Atlantic sky.</div>
+          </div>
+        </div>
+        <div class="journey-card" onclick="openLightbox('PORTAL_V8_PHOTOS/journey_a4_greenhouse_interior_2024.jpg','Inside the Greenhouse — June 2024')">
+          <img src="PORTAL_V8_PHOTOS/journey_a4_greenhouse_interior_2024.jpg" alt="Inside the Greenhouse — CEO in completed corridor, June 2024" class="phase-img" loading="lazy">
+          <div class="phase-body">
+            <div class="phase-label">Act II &mdash; The Greenhouse</div>
+            <div class="phase-date">June 2024</div>
+            <div class="phase-desc">Inside the completed corridor. 10,000 m&sup2; under one roof.</div>
+          </div>
+        </div>
+        <div class="journey-card" onclick="openLightbox('PORTAL_V8_PHOTOS/journey_a5_growlights_2024.jpg','First Light — August 2024')">
+          <img src="PORTAL_V8_PHOTOS/journey_a5_growlights_2024.jpg" alt="First Light — Purple LED grow lights, August 2024" class="phase-img" loading="lazy">
+          <div class="phase-body">
+            <div class="phase-label">Act II &mdash; The Greenhouse</div>
+            <div class="phase-date">August 2024</div>
+            <div class="phase-desc">Purple LED cultivation lights. The grow rooms come alive.</div>
+          </div>
+        </div>
+        <div class="journey-card" onclick="openLightbox('PORTAL_V8_PHOTOS/journey_a6_operational_2024.jpg','Fully Operational — October 2024')">
+          <img src="PORTAL_V8_PHOTOS/journey_a6_operational_2024.jpg" alt="Fully Operational Greenhouse — October 2024" class="phase-img" loading="lazy">
+          <div class="phase-body">
+            <div class="phase-label">Act III &mdash; Consolidation</div>
+            <div class="phase-date">October 2024</div>
+            <div class="phase-desc">Fertigation, grow tables, irrigation &mdash; every system running.</div>
+          </div>
+        </div>
+        <div class="journey-card" onclick="openLightbox('PORTAL_V8_PHOTOS/journey_a7_product_2025.jpg','First Product — July 2025')">
+          <img src="PORTAL_V8_PHOTOS/journey_a7_product_2025.jpg" alt="First Product — Cannabis flower close-up, July 2025" class="phase-img" loading="lazy">
+          <div class="phase-body">
+            <div class="phase-label">Act III &mdash; Consolidation</div>
+            <div class="phase-date">July 2025</div>
+            <div class="phase-desc">Cannabis flower close-up. Trichome-quality detail. The science works.</div>
+          </div>
+        </div>
+        <div class="journey-card" style="border-color:var(--ghc-secondary);background:linear-gradient(135deg,#fff,rgba(45,90,63,0.03))" onclick="switchTab('construction')">
+          <img src="PORTAL_V4/photos/phase_00_jan20.jpg" alt="Construction Begins — January 2026" class="phase-img" loading="lazy">
+          <div class="phase-body">
+            <div class="phase-label" style="color:var(--ghc-secondary)">Act IV &mdash; The Facility</div>
+            <div class="phase-date">January 2026 &rarr;</div>
+            <div class="phase-desc">Construction begins. See the detailed 11-phase timeline below &darr;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-divider"><span>Construction Timeline &mdash; 2026</span></div>
+
+    <!-- 11-phase timeline -->
+    <div class="timeline-scroll fade-in">
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_00_jan20.jpg','Phase 0 — Construction begins, 20 January 2026')">
+        <img src="PORTAL_V4/photos/phase_00_jan20.jpg" alt="Phase 0 — Construction begins, 20 January 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 0</div>
+          <div class="phase-date">20 January 2026</div>
+          <div class="phase-desc">Construction begins &mdash; bare ground, single excavator, everything ahead.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_01_feb09.jpg','Phase 1 — 20 days in, 9 February 2026')">
+        <img src="PORTAL_V4/photos/phase_01_feb09.jpg" alt="Phase 1 — 20 days in, 9 February 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 1</div>
+          <div class="phase-date">9 February 2026</div>
+          <div class="phase-desc">20 days in &mdash; basement pit carved into volcanic rock.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_02_feb12.jpg','Phase 2 — Crane arrives, 12 February 2026')">
+        <img src="PORTAL_V4/photos/phase_02_feb12.jpg" alt="Phase 2 — Crane arrives, 12 February 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 2</div>
+          <div class="phase-date">12 February 2026</div>
+          <div class="phase-desc">Crane arrives &mdash; structural work begins.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_03_feb20.jpg','Phase 3 — Building footprint, 20 February 2026')">
+        <img src="PORTAL_V4/photos/phase_03_feb20.jpg" alt="Phase 3 — Building footprint defined, 20 February 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 3</div>
+          <div class="phase-date">20 February 2026</div>
+          <div class="phase-desc">Building footprint defined &mdash; foundation grid stretches across site.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_04_feb25.jpg','Phase 4 — Rebar rising, 23-25 February 2026')">
+        <img src="PORTAL_V4/photos/phase_04_feb25.jpg" alt="Phase 4 — Rebar rising, 23-25 February 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 4</div>
+          <div class="phase-date">23&ndash;25 February 2026</div>
+          <div class="phase-desc">Rebar rising &mdash; skeleton of pharmaceutical facility takes shape.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_05_feb27.jpg','Phase 5 — First columns, 27 February 2026')">
+        <img src="PORTAL_V4/photos/phase_05_feb27.jpg" alt="Phase 5 — First columns rise, 27 February 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 5</div>
+          <div class="phase-date">27 February 2026</div>
+          <div class="phase-desc">First columns rise &mdash; building goes vertical.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_06_mar02.jpg','Phase 6 — Structural grid, 2 March 2026')">
+        <img src="PORTAL_V4/photos/phase_06_mar02.jpg" alt="Phase 6 — Structural grid emerges, 2 March 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 6</div>
+          <div class="phase-date">2 March 2026</div>
+          <div class="phase-desc">Structural grid emerges &mdash; rebar columns define every room.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_07_mar06.jpg','Phase 7 — Foundations complete, 6 March 2026')">
+        <img src="PORTAL_V4/photos/phase_07_mar06.jpg" alt="Phase 7 — Foundations complete, 6 March 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 7</div>
+          <div class="phase-date">6 March 2026</div>
+          <div class="phase-desc">Foundations complete &mdash; every column position mapped and poured.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_08_mar10.jpg','Phase 8 — Columns rising, 10 March 2026')">
+        <img src="PORTAL_V4/photos/phase_08_mar10.jpg" alt="Phase 8 — Concrete columns rising, 10 March 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 8</div>
+          <div class="phase-date">10 March 2026</div>
+          <div class="phase-desc">Concrete columns rising across full building footprint.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_09_mar23.jpg','Phase 9 — 63 days of progress, 23 March 2026')">
+        <img src="PORTAL_V4/photos/phase_09_mar23.jpg" alt="Phase 9 — 63 days of progress, 23 March 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 9</div>
+          <div class="phase-date">23 March 2026</div>
+          <div class="phase-desc">63 days of progress &mdash; pharmaceutical facility rises from volcanic ground.</div>
+        </div>
+      </div>
+      <div class="phase-card" onclick="openLightbox('PORTAL_V4/photos/phase_10_mar30.jpg','Phase 10 — Structural grid advancing, 30 March 2026')">
+        <img src="PORTAL_V4/photos/phase_10_mar30.jpg" alt="Phase 10 — Structural grid advancing, 30 March 2026" class="phase-img" loading="lazy">
+        <div class="phase-body">
+          <div class="phase-label">Phase 10</div>
+          <div class="phase-date">30 March 2026</div>
+          <div class="phase-desc">70 days &mdash; columns multiplying across the structural grid. Crane active. Workforce on site.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Construction Timeline Gantt -->
+    <div class="chart-container fade-in" style="background:rgba(26,58,42,0.04);border:1px solid rgba(26,58,42,0.08);margin-top:48px">
+      <div class="chart-title" style="color:var(--ghc-primary)">Construction Timeline &mdash; January to March 2026</div>
+      <div class="chart-note" style="color:#666">10 documented phases in 70 days. Cert N&#176;1 certified 15.8% of total scope.</div>
+      <canvas id="constructionTimelineChart" height="280"></canvas>
+    </div>
+
+    <!-- 3D Viewer -->
+    <div class="viewer-section">
+      <div class="container">
+        <div class="section-label" style="color:var(--ghc-text-light)">Site Visualisation</div>
+        <div class="viewer-wrapper">
+          <model-viewer id="modelViewer" src="PORTAL_V4/models/GHC_SITE_MAR10.glb" alt="GHC construction site 3D scan — March 10, 2026" auto-rotate camera-controls touch-action="pan-y" loading="lazy" reveal="auto" shadow-intensity="0.5" style="width:100%;height:500px;background:#111"></model-viewer>
+        </div>
+        <div class="viewer-toggle">
+          <button class="toggle-btn" onclick="switchModel('feb')" id="btnFeb">Feb 27</button>
+          <button class="toggle-btn active" onclick="switchModel('mar')" id="btnMar">Mar 10</button>
+        </div>
+        <div class="viewer-caption">Rotate &bull; Zoom &bull; Pan. Three-dimensional visualisation of construction progress.</div>
+      </div>
+    </div>
+
+    <!-- Callout boxes -->
+    <div class="container">
+      <div class="callouts">
+        <div class="callout">
+          <div class="callout-text">~270 m&sup2; pharmaceutical-grade basement &mdash; the island gave us something we did not plan for: a soft stratum at 5&ndash;6 metres depth, delivering a facility asset not in the original design.</div>
+        </div>
+        <div class="callout">
+          <div class="callout-text">Nearly &euro;200,000 in earthworks savings from geological discovery.</div>
+        </div>
+        <div class="callout">
+          <div class="callout-text">Ceiling Milestone &mdash; GMP installations begin once ceiling complete and installation funding committed. Expected July 2026.</div>
+        </div>
+        <div class="callout">
+          <div class="callout-text">Gea Europa offered 12-hour shifts at no additional cost to accelerate the programme.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- END TAB 2 -->
+
+<!-- ====== TAB 3: FINANCIALS ====== -->
+<div class="tab-content" id="tab-financials">
+
+<section class="fin-section" id="financials">
+  <div class="container">
+    <div class="section-label">Financial Performance</div>
+    <h2 class="section-title" style="color:#fff">The Economics of Execution</h2>
+    <p class="section-subtitle" style="color:rgba(255,255,255,0.7)">Batch-level unit economics &mdash; not projections, not assumptions. Modelled at &euro;2,300/kg &mdash; the lowest wholesale price ever recorded in the German medical cannabis market. 2027 is commissioning year &mdash; first full production 2028.</p>
+
+    <!-- ====== CHART 1: Revenue + EBITDA Combo ====== -->
+    <div class="chart-container fade-in" id="revenueChartWrap">
+      <div class="chart-title">Revenue Projection &amp; EBITDA Margin &mdash; V4 Financial Model</div>
+      <div class="chart-note">Modelled at &euro;2,300/kg &mdash; lowest price ever recorded in the German market (government tender). 2027 is commissioning &mdash; first full production 2028.</div>
+      <div class="chart-canvas-wrap" style="max-height:380px">
+        <canvas id="revenueEbitdaChart"></canvas>
+      </div>
+    </div>
+
+    <!-- ====== CHART 2: Sensitivity Heatmap ====== -->
+    <div class="chart-container fade-in" id="sensitivityWrap">
+      <div class="chart-title">EBITDA Sensitivity &mdash; Price &times; Volume Matrix</div>
+      <div class="chart-note">Nine scenarios spanning bear to bull case. Gold border marks the base case at full capacity.</div>
+      <div class="heatmap-grid">
+        <div class="heatmap-header"></div>
+        <div class="heatmap-header">50% (600 kg)</div>
+        <div class="heatmap-header">75% (900 kg)</div>
+        <div class="heatmap-header">100% (1,200 kg)</div>
+
+        <div class="heatmap-row-label">&euro;1,800/kg (bear)</div>
+        <div class="heatmap-cell" style="background:rgba(45,90,63,0.25);color:#fff">&euro;0.83M</div>
+        <div class="heatmap-cell" style="background:rgba(45,90,63,0.40);color:#fff">&euro;1.30M</div>
+        <div class="heatmap-cell" style="background:rgba(45,90,63,0.55);color:#fff">&euro;1.77M</div>
+
+        <div class="heatmap-row-label">&euro;2,300/kg (base)</div>
+        <div class="heatmap-cell" style="background:rgba(45,90,63,0.45);color:#fff">&euro;1.13M</div>
+        <div class="heatmap-cell" style="background:rgba(45,90,63,0.60);color:#fff">&euro;1.72M</div>
+        <div class="heatmap-cell base-case" style="background:rgba(45,90,63,0.75);color:#fff">&euro;2.03M</div>
+
+        <div class="heatmap-row-label">&euro;2,800/kg (bull)</div>
+        <div class="heatmap-cell" style="background:rgba(45,90,63,0.55);color:#fff">&euro;1.43M</div>
+        <div class="heatmap-cell" style="background:rgba(45,90,63,0.70);color:#fff">&euro;2.17M</div>
+        <div class="heatmap-cell" style="background:rgba(45,90,63,0.90);color:#fff">&euro;2.90M</div>
+      </div>
+    </div>
+
+    <!-- ====== BATCH ECONOMICS TABLE ====== -->
+    <div class="chart-container fade-in">
+      <div class="chart-title">Batch Economics &mdash; 100 kg at &euro;2,300/kg</div>
+      <div class="chart-note">Unit-level profitability at the wholesale floor price.</div>
+      <table class="batch-table">
+        <thead>
+          <tr><th>Item</th><th>Per Batch</th><th>Per kg</th><th>Margin</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Revenue (100 kg &times; &euro;2,300/kg)</td>
+            <td class="amount">&euro;230,000</td>
+            <td class="amount">&euro;2,300</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Total COGS</td>
+            <td class="amount">&euro;43,200</td>
+            <td class="amount">&euro;432</td>
+            <td></td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Gross Profit</strong></td>
+            <td class="amount"><strong>&euro;186,800</strong></td>
+            <td class="amount"><strong>&euro;1,868</strong></td>
+            <td class="amount"><strong>81.2%</strong></td>
+          </tr>
+          <tr>
+            <td>Overheads</td>
+            <td class="amount">&euro;17,800</td>
+            <td class="amount">&euro;178</td>
+            <td></td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>EBITDA</strong></td>
+            <td class="amount"><strong>&euro;169,000</strong></td>
+            <td class="amount"><strong>&euro;1,690</strong></td>
+            <td class="amount"><strong>73.5%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ====== CHART 3: Capital Deployment Waterfall ====== -->
+    <div class="chart-container fade-in" id="capitalChartWrap">
+      <div class="chart-title">Capital Deployment &mdash; Construction Phase</div>
+      <div class="chart-note">Quarterly investment schedule with cumulative deployment line. Total &euro;7.4M project (Phase I &euro;5.8M + Phase II &euro;1.6M).</div>
+      <div class="chart-canvas-wrap" style="max-height:380px">
+        <canvas id="capitalWaterfallChart"></canvas>
+      </div>
+    </div>
+
+    <!-- ====== CHART 4: SOP Progress ====== -->
+    <div class="chart-container fade-in" id="sopChartWrap">
+      <div class="chart-title">EU-GMP Operational Process Documentation</div>
+      <div class="chart-note">7 of 19 controlled processes documented in Week 1 &mdash; 350% of the two-per-week target.</div>
+      <div class="chart-canvas-wrap" style="max-height:200px">
+        <canvas id="sopProgressChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Unit economics -->
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:24px;margin-top:48px">Unit Economics</h3>
+    <div class="unit-econ-grid">
+      <div class="unit-card">
+        <div class="unit-value">&euro;2,300/kg</div>
+        <div class="unit-label">Wholesale floor price</div>
+        <div class="unit-context">The lowest price ever recorded</div>
+      </div>
+      <div class="unit-card">
+        <div class="unit-value">~&euro;169,000</div>
+        <div class="unit-label">EBITDA per 100 kg batch</div>
+        <div class="unit-context">Modelled at &euro;2,300/kg &mdash; the floor</div>
+      </div>
+      <div class="unit-card">
+        <div class="unit-value">320 kg</div>
+        <div class="unit-label">Annual break-even</div>
+        <div class="unit-context">Three months of production &mdash; then profit</div>
+      </div>
+      <div class="unit-card">
+        <div class="unit-value">&euro;5.23/g</div>
+        <div class="unit-label">German Market Average</div>
+        <div class="unit-context">Above &euro;3,000/kg wholesale</div>
+      </div>
+    </div>
+
+    <!-- Margin display -->
+    <div class="margin-display fade-in">
+      <div class="chart-title">Gross Margin</div>
+      <div class="margin-bars">
+        <div class="margin-row">
+          <div class="margin-bar-label" style="color:#fff">GHC (projected)</div>
+          <div class="margin-bar-track">
+            <div class="margin-bar-fill" style="width:81%;background:var(--ghc-gold)"><span style="color:var(--ghc-primary)">81.2%</span></div>
+          </div>
+        </div>
+        <div class="margin-row">
+          <div class="margin-bar-label" style="color:rgba(255,255,255,0.5)">Industry average</div>
+          <div class="margin-bar-track">
+            <div class="margin-bar-fill" style="width:40%;background:rgba(255,255,255,0.15)"><span style="color:rgba(255,255,255,0.4)">~35&ndash;40%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== CHART 5: Forward Gantt ====== -->
+    <div class="chart-container fade-in" id="forwardGanttWrap">
+      <div class="chart-title">Forward Schedule &mdash; April 2026 to Q1 2027</div>
+      <div class="chart-note">Ceiling Milestone &mdash; GMP installations begin once ceiling complete and installation funding committed.</div>
+      <div class="gantt-container" id="forwardGantt">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Cost tracking table -->
+    <div class="chart-container fade-in">
+      <div class="chart-title">Construction Cost Tracking</div>
+      <table class="cost-table">
+        <thead>
+          <tr><th>Item</th><th>Amount</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gea Europa (construction scope)</td>
+            <td class="amount">&euro;2,092,950</td>
+            <td class="status-active">Active &mdash; 15.8% certified</td>
+          </tr>
+          <tr>
+            <td>30% advance payment</td>
+            <td class="amount">&euro;630,285</td>
+            <td class="status-paid">&#10003; Paid</td>
+          </tr>
+          <tr>
+            <td>Cert N&#176;1</td>
+            <td class="amount">&euro;354,876.18</td>
+            <td class="status-paid">&#10003; Paid Mar 27</td>
+          </tr>
+          <tr>
+            <td>Basement extras</td>
+            <td class="amount">&euro;149,807.95</td>
+            <td class="status-active">Ordered</td>
+          </tr>
+          <tr>
+            <td>Cleanroom installation (3-way bid)</td>
+            <td class="amount">~&euro;1.6M est.</td>
+            <td class="status-pending">Bidding &mdash; decision Apr 4</td>
+          </tr>
+          <tr>
+            <td><strong>Total project</strong></td>
+            <td class="amount"><strong>&euro;7,400,000</strong></td>
+            <td class="status-active"><strong>Fully funded through Phase I</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Treasury position -->
+    <h3 style="font-size:16px;font-weight:700;margin-top:48px;margin-bottom:24px">Treasury Position &mdash; March 2026</h3>
+    <div class="treasury-grid">
+      <div class="treasury-card">
+        <div class="treasury-label">GHC (CaixaBank)</div>
+        <div class="treasury-value">&euro;103,638</div>
+        <div class="treasury-note">Post-Cert N&#176;1 payment</div>
+      </div>
+      <div class="treasury-card">
+        <div class="treasury-label">CPH &mdash; Parent Entity (CaixaBank)</div>
+        <div class="treasury-value">&euro;760,279</div>
+        <div class="treasury-note">Held at parent level</div>
+      </div>
+      <div class="treasury-card">
+        <div class="treasury-label">ZEC IGIC Pending</div>
+        <div class="treasury-value">&euro;47,847</div>
+        <div class="treasury-note">Tax credit receivable</div>
+      </div>
+    </div>
+
+    <!-- Key metrics -->
+    <div style="background:rgba(255,255,255,0.06);border-radius:12px;padding:32px;margin-top:48px">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:24px">Investment Metrics</h3>
+      <div class="unit-econ-grid">
+        <div class="unit-card">
+          <div class="unit-value">130.4%</div>
+          <div class="unit-label">Internal Rate of Return (IRR)</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-value">&euro;17.4M</div>
+          <div class="unit-label">Net Present Value (NPV)</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-value">4%</div>
+          <div class="unit-label">ZEC Corporate Tax</div>
+        </div>
+        <div class="unit-card">
+          <div class="unit-value">July 2026</div>
+          <div class="unit-label">Ceiling Milestone</div>
+          <div class="unit-context">GMP installations begin once ceiling complete and installation funding committed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- END TAB 3 -->
+
+<!-- ====== TAB 4: REGULATORY ====== -->
+<div class="tab-content" id="tab-regulatory">
+
+<section id="regulatory">
+  <div class="container">
+    <div class="section-label">Quality &amp; Regulatory</div>
+    <h2 class="section-title">Building the Quality System &mdash; While Building the Facility</h2>
+    <p class="section-subtitle">A complete EU-GMP Quality Management System, built from the top down in parallel with construction &mdash; saving approximately nine months. Well beyond our Week 1 targets.</p>
+
+    <!-- QMS Architecture -->
+    <h3 style="font-size:18px;margin-bottom:16px;font-weight:600">EU-GMP Quality Management System Architecture</h3>
+    <p style="font-size:15px;color:#555;line-height:1.6;margin-bottom:32px">GHC is not simply documenting operational workflows. We are constructing a pharmaceutical-grade Quality Management System designed for AEMPS inspection from day one. The system is built top-down: corporate governance and data integrity at the foundation, risk-based quality oversight in the middle, and operational control at the execution layer.</p>
+
+    <!-- QMS Pyramid - 4 tiers -->
+    <div style="display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:48px" class="fade-in">
+      <div class="callout" style="border-left-color:#c4a035;background:rgba(26,58,42,0.03)">
+        <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ghc-gold);font-weight:700;margin-bottom:8px">Tier 1 &mdash; Governance &amp; Data Integrity</div>
+        <div class="callout-text"><strong>Corporate General Log (CGL)</strong> &mdash; ALCOA+ compliant decision registry. Every corporate decision, workflow change, and regulatory milestone is attributable, legible, contemporaneous, original, accurate, complete, consistent, enduring, and available. 43+ entries logged. This is the audit trail that underpins the entire QMS.</div>
+      </div>
+      <div class="callout" style="border-left-color:var(--ghc-secondary);background:rgba(26,58,42,0.03)">
+        <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ghc-secondary);font-weight:700;margin-bottom:8px">Tier 2 &mdash; Quality Oversight</div>
+        <div class="callout-text"><strong>Change Control, CAPA, Deviations, Self-Inspection</strong> &mdash; the corrective and preventive framework. Risk-based decision making per ICH Q9. Every deviation is captured, investigated, and resolved with root cause analysis. Self-inspection programme ensures continuous readiness.</div>
+      </div>
+      <div class="callout" style="border-left-color:var(--ghc-positive);background:rgba(26,58,42,0.03)">
+        <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ghc-positive);font-weight:700;margin-bottom:8px">Tier 3 &mdash; Operational Control</div>
+        <div class="callout-text"><strong>19 controlled operational processes</strong> spanning document management, training, supplier qualification, complaints handling, product recall, equipment qualification, cleaning validation, environmental monitoring, stability studies, batch records, raw materials, product release, storage, transport, and waste destruction. Each process is designed to EudraLex Volume 4 requirements.</div>
+      </div>
+      <div class="callout" style="border-left-color:var(--ghc-primary);background:rgba(26,58,42,0.03)">
+        <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ghc-primary);font-weight:700;margin-bottom:8px">Tier 4 &mdash; Validation &amp; Qualification</div>
+        <div class="callout-text"><strong>Equipment IQ/OQ/PQ, cleaning validation, process validation, computer system validation (Annex 11 / GAMP 5)</strong> &mdash; scheduled to run in parallel with cleanroom commissioning. Validation Master Plan in development. The final gate before AEMPS inspection.</div>
+      </div>
+    </div>
+
+    <!-- Progress Grid -->
+    <h3 style="font-size:18px;margin-bottom:8px;font-weight:600">Operational Process Documentation: 7 of 19 Complete</h3>
+    <p style="font-size:14px;color:#888;margin-bottom:16px">Each process undergoes Qualified Person review before formal approval. Virtual QP gate active &mdash; first review returned APPROVE WITH CONDITIONS.</p>
+    <div class="sop-grid fade-in">
+      <div class="sop-box done">Document Control &#10003;</div>
+      <div class="sop-box done">Change Control &#10003;</div>
+      <div class="sop-box done">CAPA &#10003;</div>
+      <div class="sop-box done">Deviations &#10003;</div>
+      <div class="sop-box done">Training &#10003;</div>
+      <div class="sop-box done">Self-Inspection &#10003;</div>
+      <div class="sop-box done">Supplier Qualification &#10003;</div>
+      <div class="sop-box next">Complaints (W2)</div>
+      <div class="sop-box">Recall</div>
+      <div class="sop-box">Equipment Qualification</div>
+      <div class="sop-box">Cleaning Validation</div>
+      <div class="sop-box">Environmental Monitoring</div>
+      <div class="sop-box">Stability</div>
+      <div class="sop-box">Batch Records</div>
+      <div class="sop-box">Raw Materials</div>
+      <div class="sop-box">Product Release</div>
+      <div class="sop-box">Storage (basement)</div>
+      <div class="sop-box">Transport (basement)</div>
+      <div class="sop-box">Waste Destruction (basement)</div>
+    </div>
+
+    <!-- Sprint timeline -->
+    <h3 style="font-size:18px;margin-bottom:16px;font-weight:600;margin-top:48px">24-Week Corporate Establishment Sprint</h3>
+    <p style="font-size:14px;color:#888;margin-bottom:16px">Full regulatory pathway from QMS build through Qualified Person appointment, external pre-audit, to AEMPS manufacturing authorisation request.</p>
+    <div class="sprint-bar fade-in">
+      <div class="sprint-node">
+        <div class="sprint-dot done"></div>
+        <div class="sprint-week">W1 &#10003;</div>
+        <div class="sprint-label">Mar 24&ndash;28</div>
+      </div>
+      <div class="sprint-line done"></div>
+      <div class="sprint-node">
+        <div class="sprint-dot current"></div>
+        <div class="sprint-week">W2</div>
+        <div class="sprint-label">Mar 31&ndash;Apr 4</div>
+      </div>
+      <div class="sprint-line"></div>
+      <div class="sprint-node">
+        <div class="sprint-dot"></div>
+        <div class="sprint-week">W4</div>
+        <div class="sprint-label">Apr 14&ndash;18</div>
+      </div>
+      <div class="sprint-line"></div>
+      <div class="sprint-node">
+        <div class="sprint-dot"></div>
+        <div class="sprint-week">W8</div>
+        <div class="sprint-label">May 12&ndash;16</div>
+      </div>
+      <div class="sprint-line"></div>
+      <div class="sprint-node">
+        <div class="sprint-dot"></div>
+        <div class="sprint-week">W10</div>
+        <div class="sprint-label">QP starts Jun 1</div>
+      </div>
+      <div class="sprint-line"></div>
+      <div class="sprint-node">
+        <div class="sprint-dot"></div>
+        <div class="sprint-week">W20</div>
+        <div class="sprint-label">Qualipharma Aug</div>
+      </div>
+      <div class="sprint-line"></div>
+      <div class="sprint-node">
+        <div class="sprint-dot"></div>
+        <div class="sprint-week">W24</div>
+        <div class="sprint-label">AEMPS request Sep</div>
+      </div>
+    </div>
+
+    <!-- Key QMS metrics -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px" class="fade-in">
+      <div class="metric-card">
+        <div class="metric-label">ALCOA+</div>
+        <div class="metric-value" style="font-size:20px">Active</div>
+        <div class="metric-detail">Data integrity framework operational from Day 1 via Corporate General Log.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">QP Review</div>
+        <div class="metric-value" style="font-size:20px">Live</div>
+        <div class="metric-detail">Virtual Qualified Person review gate. First result: Approve with Conditions.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Pre-Audit</div>
+        <div class="metric-value" style="font-size:20px">Aug 2026</div>
+        <div class="metric-detail">Qualipharma external pre-audit. GMP gap analysis before AEMPS submission.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">AEMPS</div>
+        <div class="metric-value" style="font-size:20px">Sep 2026</div>
+        <div class="metric-detail">Manufacturing authorisation request to Spanish Medicines Agency.</div>
+      </div>
+    </div>
+
+    <!-- Cannaflos card -->
+    <div class="cannaflos-card fade-in" style="margin-top:48px">
+      <div class="cannaflos-title">Cannaflos Partnership &mdash; First-Mover Position</div>
+      <p style="margin-bottom:20px;color:#555">Nineteen EU-registered cannabis varieties &mdash; pharmaceutical-grade freeze-dried cannabis flower. No EU manufacturer currently operates at GMP scale. First-mover position &mdash; not a claim, a fact.</p>
+      <div class="cannaflos-stat">
+        <div class="cannaflos-item">
+          <div class="cannaflos-num">19</div>
+          <div class="cannaflos-label">EU-registered cannabis varieties</div>
+        </div>
+        <div class="cannaflos-item">
+          <div class="cannaflos-num">GMP</div>
+          <div class="cannaflos-label">Pharmaceutical-grade manufacturing</div>
+        </div>
+        <div class="cannaflos-item">
+          <div class="cannaflos-num">1st</div>
+          <div class="cannaflos-label">EU first-mover at scale</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- END TAB 4 -->
+
+<!-- ====== TAB 5: DOCUMENTS ====== -->
+<div class="tab-content" id="tab-documents">
+
+<section id="documents" style="padding-bottom:40px">
+  <div class="container">
+    <div class="section-label">Documents</div>
+    <h2 class="section-title">Q1 2026 Reports</h2>
+    <p class="section-subtitle" style="margin-bottom:32px">Download the complete Q1 2026 package. All documents dated March 2026.</p>
+
+    <div class="docs-grid fade-in">
+      <div class="doc-card">
+        <div class="doc-info">
+          <h3>Q1 Shareholder Update</h3>
+          <div class="doc-meta">PDF &middot; March 2026 &middot; 12 KB</div>
+        </div>
+        <a href="PORTAL_V4/docs/GHC_Q1_2026_Shareholder_Update.pdf" class="doc-btn" download>Download</a>
+      </div>
+      <div class="doc-card">
+        <div class="doc-info">
+          <h3>Financial Overview Q1</h3>
+          <div class="doc-meta">PDF &middot; March 2026 &middot; 8 KB</div>
+        </div>
+        <a href="PORTAL_V4/docs/GHC_Q1_2026_Financial_Overview.pdf" class="doc-btn" download>Download</a>
+      </div>
+      <div class="doc-card">
+        <div class="doc-info">
+          <h3>Progress Brief Q1</h3>
+          <div class="doc-meta">PDF &middot; March 2026 &middot; 817 KB</div>
+        </div>
+        <a href="PORTAL_V4/docs/GHC_Q1_2026_Progress_Brief.pdf" class="doc-btn" download>Download</a>
+      </div>
+      <div class="doc-card">
+        <div class="doc-info">
+          <h3>Construction Photos Q1</h3>
+          <div class="doc-meta">PDF &middot; March 2026 &middot; 5 MB</div>
+        </div>
+        <a href="PORTAL_V4/docs/GHC_Q1_2026_Construction_Photos.pdf" class="doc-btn" download>Download</a>
+      </div>
+      <div class="doc-card">
+        <div class="doc-info">
+          <h3>Full Construction Timelapse</h3>
+          <div class="doc-meta">MP4 &middot; March 2026 &middot; 46 MB</div>
+        </div>
+        <a href="PORTAL_V4/video/GHC_CONSTRUCTION_TIMELAPSE_FULL.mp4" class="doc-btn" download>Download</a>
+      </div>
+    </div>
+
+    <!-- Founders-only section -->
+    <div class="founders-only-section fade-in">
+      <div class="founders-lock-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Founders Access
+      </div>
+      <div id="foundersGate" class="founders-gate">
+        <div class="docs-grid">
+          <div class="doc-card">
+            <div class="doc-info">
+              <h3>Strategic Plan Compliance Audit</h3>
+              <div class="doc-meta">PDF &middot; March 2026 &middot; 26 KB &middot; Founders only</div>
+            </div>
+            <a href="PORTAL_V4/docs/GHC_Q1_Strategic_Plan_Compliance_Audit.pdf" class="doc-btn" download>Download</a>
+          </div>
+        </div>
+      </div>
+      <div id="foundersLocked">
+        <form style="display:flex;gap:12px;align-items:center;margin-top:8px" onsubmit="return handleFoundersLogin(event)">
+          <input type="password" id="foundersPass" class="login-input" style="background:rgba(26,58,42,0.05);border-color:rgba(26,58,42,0.15);color:var(--ghc-text-dark);width:220px" placeholder="Founders code" aria-label="Founders access code">
+          <button type="submit" class="doc-btn" style="padding:12px 20px">Unlock</button>
+        </form>
+        <div class="login-error" id="foundersError" style="color:var(--ghc-error)">Invalid founders code.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- END TAB 5 -->
+
+</div><!-- END PORTAL CONTENT -->
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="container">
+    <img src="PORTAL_V4/photos/ghc_logo_white.png" alt="Green Hill Canarias" class="footer-logo">
+    <div class="footer-text">
+      <span class="footer-cta">The window is open. It will not stay open indefinitely.</span>
+      <p style="margin-top:16px">Green Hill Canarias SL &middot; Q1 2026 &middot; Confidential</p>
+      <p style="margin-top:8px;font-size:12px;opacity:0.4">32,740 m&sup2; &middot; Las Eras, Arico, Tenerife &middot; Canary Islands</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== LIGHTBOX ====== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightboxImage" src="" alt="">
+</div>
+
+<!-- ====== JAVASCRIPT — PORTAL V9 ====== -->
+<script>
+(function() {
+  'use strict';
+
+  // ---- PASSWORD CONFIG ----
+  var SHAREHOLDER_PASS = 'GHC2026Q1';
+  var FOUNDERS_PASS = 'GHC2026Q1FOUNDERS';
+
+  // ---- GHC BRAND COLORS ----
+  var GHC_PRIMARY = '#1a3a2a';
+  var GHC_SECONDARY = '#2d5a3f';
+  var GHC_GOLD = '#c4a035';
+  var GHC_GOLD_LIGHT = 'rgba(196, 160, 53, 0.3)';
+
+  // ---- CHART INSTANCES ----
+  var chartInstances = {};
+  var chartsInitialized = false;
+
+  // ---- LOGIN ----
+  window.handleLogin = function(e) {
+    e.preventDefault();
+    var pass = document.getElementById('loginPass').value.trim();
+    if (!pass) return false;
+
+    if (pass === SHAREHOLDER_PASS || pass === FOUNDERS_PASS) {
+      document.getElementById('loginScreen').classList.add('hidden');
+      document.getElementById('portalContent').style.display = 'block';
+      document.getElementById('mainNav').style.display = 'block';
+      document.getElementById('tabBar').style.display = 'block';
+      document.getElementById('tabBar').classList.add('visible');
+
+      if (pass === FOUNDERS_PASS) {
+        var fg = document.getElementById('foundersGate');
+        var fl = document.getElementById('foundersLocked');
+        if (fg) fg.classList.add('unlocked');
+        if (fl) fl.style.display = 'none';
+      }
+
+      var v = document.getElementById('heroVideo');
+      if (v) v.load();
+
+      setTimeout(initAnimations, 100);
+      setTimeout(initChartObservers, 200);
+      renderForwardGantt();
+      return false;
+    }
+
+    document.getElementById('loginError').style.display = 'block';
+    return false;
+  };
+
+  // ---- FOUNDERS LOGIN ----
+  window.handleFoundersLogin = function(e) {
+    e.preventDefault();
+    var pass = document.getElementById('foundersPass').value.trim();
+    if (!pass) return false;
+
+    if (pass === FOUNDERS_PASS) {
+      document.getElementById('foundersGate').classList.add('unlocked');
+      document.getElementById('foundersLocked').style.display = 'none';
+      return false;
+    }
+
+    document.getElementById('foundersError').style.display = 'block';
+    return false;
+  };
+
+  // ---- TAB SWITCHING ----
+  window.switchTab = function(tabId, event) {
+    if (event) event.preventDefault();
+
+    var tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(function(t) { t.classList.remove('active'); });
+
+    var target = document.getElementById('tab-' + tabId);
+    if (target) target.classList.add('active');
+
+    var btns = document.querySelectorAll('.tab-btn');
+    btns.forEach(function(b) { b.classList.remove('active'); });
+    btns.forEach(function(b) {
+      if (b.textContent.toLowerCase().replace(/\s+/g,'') === tabId.toLowerCase().replace(/\s+/g,'')) {
+        b.classList.add('active');
+      }
+    });
+
+    var navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(function(a) { a.style.color = ''; });
+
+    window.scrollTo({ top: 120, behavior: 'smooth' });
+
+    setTimeout(initAnimations, 100);
+    setTimeout(initChartObservers, 200);
+  };
+
+  // ---- VIDEO ----
+  window.playVideo = function() {
+    var v = document.getElementById('heroVideo');
+    var o = document.getElementById('videoOverlay');
+    if (v) {
+      v.muted = false;
+      v.play().then(function() {
+        if (o) o.classList.add('hidden');
+      }).catch(function() {
+        v.muted = true;
+        v.play();
+        if (o) o.classList.add('hidden');
+      });
+    }
+  };
+
+  // ---- 3D MODEL TOGGLE ----
+  window.switchModel = function(which) {
+    var mv = document.getElementById('modelViewer');
+    var bFeb = document.getElementById('btnFeb');
+    var bMar = document.getElementById('btnMar');
+    if (!mv) return;
+    if (which === 'feb') {
+      mv.src = 'PORTAL_V4/models/GHC_SITE_FEB27.glb';
+      mv.alt = 'GHC construction site 3D scan — February 27, 2026';
+      if (bFeb) bFeb.classList.add('active');
+      if (bMar) bMar.classList.remove('active');
+    } else {
+      mv.src = 'PORTAL_V4/models/GHC_SITE_MAR10.glb';
+      mv.alt = 'GHC construction site 3D scan — March 10, 2026';
+      if (bMar) bMar.classList.add('active');
+      if (bFeb) bFeb.classList.remove('active');
+    }
+  };
+
+  // ---- LIGHTBOX ----
+  window.openLightbox = function(src, alt) {
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lightboxImage');
+    if (img) { img.src = src; img.alt = alt || ''; }
+    if (lb) lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeLightbox = function(e) {
+    if (e && e.target && e.target.tagName === 'IMG') return;
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  // ---- HAMBURGER MENU ----
+  window.toggleMenu = function() {
+    var links = document.getElementById('navLinks');
+    if (links) links.classList.toggle('open');
+  };
+
+  // ---- NAV SCROLL HIDE/SHOW ----
+  var lastScrollTop = 0;
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('mainNav');
+    if (!nav) return;
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > 100) {
+      if (st > lastScrollTop) {
+        nav.classList.add('nav-hidden');
+      } else {
+        nav.classList.remove('nav-hidden');
+      }
+    } else {
+      nav.classList.remove('nav-hidden');
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+  }, false);
+
+  // ---- INTERSECTION OBSERVER FOR FADE-IN ----
+  function initAnimations() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    var fadeIns = document.querySelectorAll('.fade-in:not(.visible)');
+    fadeIns.forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  // ========================================
+  // CHART.JS INTERACTIVE CHARTS
+  // ========================================
+
+  function initChartObservers() {
+    // Revenue + EBITDA
+    observeChart('revenueChartWrap', function() {
+      if (!chartInstances.revenue) buildRevenueChart();
+    });
+    // Capital Waterfall
+    observeChart('capitalChartWrap', function() {
+      if (!chartInstances.capital) buildCapitalChart();
+    });
+    // SOP Progress
+    observeChart('sopChartWrap', function() {
+      if (!chartInstances.sop) buildSOPChart();
+    });
+    // Construction Timeline
+    observeChart('constructionTimelineChart', function() {
+      if (!chartInstances.timeline) buildConstructionTimeline();
+    });
+  }
+
+  function observeChart(elementId, callback) {
+    var el = document.getElementById(elementId);
+    if (!el) return;
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          callback();
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    obs.observe(el);
+  }
+
+  // ---- CHART 1: Revenue + EBITDA Combo ----
+  function buildRevenueChart() {
+    var ctx = document.getElementById('revenueEbitdaChart');
+    if (!ctx) return;
+
+    chartInstances.revenue = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['2028', '2029', '2030'],
+        datasets: [
+          {
+            label: 'Revenue',
+            data: [8.98, 13.80, 17.98],
+            backgroundColor: [GHC_SECONDARY, GHC_SECONDARY, GHC_SECONDARY],
+            borderColor: [GHC_SECONDARY, GHC_SECONDARY, GHC_SECONDARY],
+            borderWidth: 0,
+            borderRadius: 6,
+            barPercentage: 0.5,
+            yAxisID: 'y',
+            order: 2
+          },
+          {
+            label: 'EBITDA Margin',
+            data: [40.0, 49.8, 70.1],
+            type: 'line',
+            borderColor: GHC_GOLD,
+            backgroundColor: GHC_GOLD_LIGHT,
+            borderWidth: 3,
+            pointBackgroundColor: GHC_GOLD,
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2,
+            pointRadius: 6,
+            pointHoverRadius: 8,
+            tension: 0.3,
+            fill: false,
+            yAxisID: 'y1',
+            order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 1200, easing: 'easeOutQuart' },
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+            labels: { color: 'rgba(255,255,255,0.7)', font: { family: "'Inter', sans-serif", size: 12 }, usePointStyle: true, pointStyle: 'rectRounded', padding: 20 }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(26,58,42,0.95)',
+            titleFont: { family: "'Inter', sans-serif", weight: '600' },
+            bodyFont: { family: "'Inter', sans-serif" },
+            borderColor: GHC_GOLD,
+            borderWidth: 1,
+            padding: 12,
+            callbacks: {
+              label: function(context) {
+                if (context.dataset.yAxisID === 'y1') return 'EBITDA Margin: ' + context.parsed.y + '%';
+                return 'Revenue: \u20AC' + context.parsed.y.toFixed(2) + 'M';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { color: 'rgba(255,255,255,0.6)', font: { family: "'Inter', sans-serif", size: 13, weight: '600' } }
+          },
+          y: {
+            position: 'left',
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            ticks: {
+              color: 'rgba(255,255,255,0.6)',
+              font: { family: "'Inter', sans-serif", size: 12 },
+              callback: function(v) { return '\u20AC' + v + 'M'; }
+            },
+            title: { display: true, text: 'Revenue (\u20ACM)', color: 'rgba(255,255,255,0.5)', font: { size: 11 } },
+            min: 0, max: 22
+          },
+          y1: {
+            position: 'right',
+            grid: { display: false },
+            ticks: {
+              color: GHC_GOLD,
+              font: { family: "'Inter', sans-serif", size: 12 },
+              callback: function(v) { return v + '%'; }
+            },
+            title: { display: true, text: 'EBITDA Margin', color: GHC_GOLD, font: { size: 11 } },
+            min: 0, max: 100
+          }
+        }
+      }
+    });
+  }
+
+  // ---- CHART 3: Capital Deployment Waterfall ----
+  function buildCapitalChart() {
+    var ctx = document.getElementById('capitalWaterfallChart');
+    if (!ctx) return;
+
+    chartInstances.capital = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Q1 2026', 'Q2 2026', 'Q3 2026', 'Q4 2026', 'Q1 2027'],
+        datasets: [
+          {
+            label: 'Quarterly Investment',
+            data: [985, 680, 880, 570, 470],
+            backgroundColor: GHC_SECONDARY,
+            borderColor: GHC_SECONDARY,
+            borderWidth: 0,
+            borderRadius: 6,
+            barPercentage: 0.5,
+            yAxisID: 'y',
+            order: 2
+          },
+          {
+            label: 'Cumulative (\u20ACM)',
+            data: [0.98, 1.67, 2.55, 3.12, 3.59],
+            type: 'line',
+            borderColor: GHC_GOLD,
+            backgroundColor: 'transparent',
+            borderWidth: 3,
+            pointBackgroundColor: GHC_GOLD,
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2,
+            pointRadius: 6,
+            pointHoverRadius: 8,
+            tension: 0.3,
+            fill: false,
+            yAxisID: 'y1',
+            order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 1200, easing: 'easeOutQuart' },
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+            labels: { color: 'rgba(255,255,255,0.7)', font: { family: "'Inter', sans-serif", size: 12 }, usePointStyle: true, pointStyle: 'rectRounded', padding: 20 }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(26,58,42,0.95)',
+            titleFont: { family: "'Inter', sans-serif", weight: '600' },
+            bodyFont: { family: "'Inter', sans-serif" },
+            borderColor: GHC_GOLD,
+            borderWidth: 1,
+            padding: 12,
+            callbacks: {
+              label: function(context) {
+                if (context.dataset.yAxisID === 'y1') return 'Cumulative: \u20AC' + context.parsed.y.toFixed(2) + 'M';
+                return 'Investment: \u20AC' + context.parsed.y + 'K';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { color: 'rgba(255,255,255,0.6)', font: { family: "'Inter', sans-serif", size: 13, weight: '600' } }
+          },
+          y: {
+            position: 'left',
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            ticks: {
+              color: 'rgba(255,255,255,0.6)',
+              font: { family: "'Inter', sans-serif", size: 12 },
+              callback: function(v) { return '\u20AC' + v + 'K'; }
+            },
+            title: { display: true, text: 'Quarterly (\u20ACK)', color: 'rgba(255,255,255,0.5)', font: { size: 11 } },
+            min: 0, max: 1200
+          },
+          y1: {
+            position: 'right',
+            grid: { display: false },
+            ticks: {
+              color: GHC_GOLD,
+              font: { family: "'Inter', sans-serif", size: 12 },
+              callback: function(v) { return '\u20AC' + v.toFixed(1) + 'M'; }
+            },
+            title: { display: true, text: 'Cumulative (\u20ACM)', color: GHC_GOLD, font: { size: 11 } },
+            min: 0, max: 4.5
+          }
+        }
+      }
+    });
+  }
+
+  // ---- CHART 4: SOP Progress ----
+  function buildSOPChart() {
+    var ctx = document.getElementById('sopProgressChart');
+    if (!ctx) return;
+
+    chartInstances.sop = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['EU-GMP Operational Processes'],
+        datasets: [
+          {
+            label: 'Completed (7)',
+            data: [7],
+            backgroundColor: GHC_SECONDARY,
+            borderRadius: 6,
+            barPercentage: 0.6
+          },
+          {
+            label: 'Remaining (12)',
+            data: [12],
+            backgroundColor: 'rgba(255,255,255,0.10)',
+            borderRadius: 6,
+            barPercentage: 0.6
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 1000, easing: 'easeOutQuart' },
+        plugins: {
+          legend: {
+            display: true,
+            position: 'top',
+            labels: { color: 'rgba(255,255,255,0.7)', font: { family: "'Inter', sans-serif", size: 12 }, usePointStyle: true, pointStyle: 'rectRounded', padding: 20 }
+          },
+          tooltip: { enabled: true },
+          annotation: undefined
+        },
+        scales: {
+          x: {
+            stacked: true,
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            ticks: { color: 'rgba(255,255,255,0.6)', font: { family: "'Inter', sans-serif" }, stepSize: 5 },
+            max: 19
+          },
+          y: {
+            stacked: true,
+            grid: { display: false },
+            ticks: { color: 'rgba(255,255,255,0.6)', font: { family: "'Inter', sans-serif", size: 13, weight: '600' } }
+          }
+        }
+      },
+      plugins: [{
+        id: 'sopTargetLine',
+        afterDraw: function(chart) {
+          var xAxis = chart.scales.x;
+          var yAxis = chart.scales.y;
+          var ctx2 = chart.ctx;
+          var targetX = xAxis.getPixelForValue(2);
+
+          ctx2.save();
+          ctx2.setLineDash([6, 4]);
+          ctx2.strokeStyle = GHC_GOLD;
+          ctx2.lineWidth = 2;
+          ctx2.beginPath();
+          ctx2.moveTo(targetX, yAxis.top);
+          ctx2.lineTo(targetX, yAxis.bottom);
+          ctx2.stroke();
+
+          ctx2.fillStyle = GHC_GOLD;
+          ctx2.font = "bold 11px 'Inter', sans-serif";
+          ctx2.textAlign = 'center';
+          ctx2.fillText('W1 Target (2)', targetX, yAxis.top - 8);
+
+          // 350% label
+          var completedX = xAxis.getPixelForValue(7);
+          ctx2.fillStyle = '#fff';
+          ctx2.font = "bold 12px 'Inter', sans-serif";
+          ctx2.textAlign = 'center';
+          var barMid = (yAxis.top + yAxis.bottom) / 2;
+          ctx2.fillText('350% of target', (targetX + completedX) / 2, barMid + 4);
+
+          ctx2.restore();
+        }
+      }]
+    });
+  }
+
+  // ---- CHART 6: Construction Timeline (horizontal bar Gantt) ----
+  function buildConstructionTimeline() {
+    var ctx = document.getElementById('constructionTimelineChart');
+    if (!ctx) return;
+
+    // Phases as horizontal bars from Jan 20 to Mar 30
+    var phases = [
+      { label: 'P0: Ground Breaking', start: 0, end: 5 },
+      { label: 'P1: Excavation', start: 5, end: 20 },
+      { label: 'P2: Crane & Structure', start: 20, end: 23 },
+      { label: 'P3: Footprint', start: 23, end: 31 },
+      { label: 'P4: Rebar', start: 31, end: 36 },
+      { label: 'P5: First Columns', start: 36, end: 38 },
+      { label: 'P6: Structural Grid', start: 38, end: 41 },
+      { label: 'P7: Foundations', start: 41, end: 46 },
+      { label: 'P8: Columns Rising', start: 46, end: 50 },
+      { label: 'P9: 63 Days', start: 50, end: 63 },
+      { label: 'P10: Current', start: 63, end: 70 }
+    ];
+
+    var labels = phases.map(function(p) { return p.label; });
+    var startData = phases.map(function(p) { return p.start; });
+    var durationData = phases.map(function(p) { return p.end - p.start; });
+
+    chartInstances.timeline = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Start offset',
+            data: startData,
+            backgroundColor: 'transparent',
+            borderWidth: 0,
+            barPercentage: 0.6
+          },
+          {
+            label: 'Duration (days)',
+            data: durationData,
+            backgroundColor: phases.map(function(p, i) {
+              return i < 10 ? GHC_SECONDARY : GHC_GOLD;
+            }),
+            borderWidth: 0,
+            borderRadius: 4,
+            barPercentage: 0.6
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 1000, easing: 'easeOutQuart' },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(26,58,42,0.95)',
+            borderColor: GHC_GOLD,
+            borderWidth: 1,
+            callbacks: {
+              label: function(context) {
+                if (context.datasetIndex === 0) return '';
+                var idx = context.dataIndex;
+                return 'Day ' + phases[idx].start + ' \u2013 ' + phases[idx].end + ' (' + (phases[idx].end - phases[idx].start) + ' days)';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            stacked: true,
+            grid: { color: 'rgba(26,58,42,0.08)' },
+            ticks: {
+              color: '#666',
+              font: { family: "'Inter', sans-serif", size: 11 },
+              callback: function(v) { return 'Day ' + v; }
+            },
+            max: 75,
+            title: { display: true, text: 'Construction Days (Jan 20 \u2013 Mar 30, 2026)', color: '#888', font: { size: 11 } }
+          },
+          y: {
+            stacked: true,
+            grid: { display: false },
+            ticks: { color: GHC_PRIMARY, font: { family: "'Inter', sans-serif", size: 11, weight: '500' } }
+          }
+        }
+      },
+      plugins: [{
+        id: 'certMarker',
+        afterDraw: function(chart) {
+          var xAxis = chart.scales.x;
+          var yAxis = chart.scales.y;
+          var ctx2 = chart.ctx;
+          var certX = xAxis.getPixelForValue(60);
+
+          ctx2.save();
+          ctx2.setLineDash([4, 3]);
+          ctx2.strokeStyle = GHC_GOLD;
+          ctx2.lineWidth = 2;
+          ctx2.beginPath();
+          ctx2.moveTo(certX, yAxis.top);
+          ctx2.lineTo(certX, yAxis.bottom);
+          ctx2.stroke();
+
+          ctx2.fillStyle = GHC_GOLD;
+          ctx2.font = "bold 10px 'Inter', sans-serif";
+          ctx2.textAlign = 'center';
+          ctx2.fillText('CERT N\u00B01', certX, yAxis.top - 6);
+          ctx2.restore();
+        }
+      }]
+    });
+  }
+
+  // ---- CHART 5: Forward Gantt (HTML/CSS) ----
+  function renderForwardGantt() {
+    var container = document.getElementById('forwardGantt');
+    if (!container) return;
+
+    // Timeline: Mar 2026 (0) to Mar 2027 (12 months)
+    var months = ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'];
+    var tasks = [
+      { name: 'QMS Parallel Build', start: 0, end: 6, color: GHC_SECONDARY },
+      { name: 'Ceiling Structure', start: 1, end: 4, color: GHC_SECONDARY },
+      { name: 'Cleanroom Selection', start: 1, end: 2, color: 'rgba(45,90,63,0.6)' },
+      { name: 'Cleanroom Installation', start: 4, end: 9, color: GHC_SECONDARY },
+      { name: 'Equipment IQ/OQ/PQ', start: 7, end: 10, color: 'rgba(45,90,63,0.7)' },
+      { name: 'AEMPS Inspection', start: 10, end: 12, color: GHC_GOLD }
+    ];
+
+    var nowMonth = 0; // Mar 2026
+    var ceilingMonth = 4; // Jul 2026
+
+    // Build month header
+    var monthsHtml = '<div class="gantt-months">';
+    months.forEach(function(m) {
+      monthsHtml += '<div class="gantt-month">' + m + '</div>';
+    });
+    monthsHtml += '</div>';
+
+    // Build rows
+    var rowsHtml = '';
+    tasks.forEach(function(task) {
+      var leftPct = (task.start / 12 * 100).toFixed(1);
+      var widthPct = ((task.end - task.start) / 12 * 100).toFixed(1);
+      rowsHtml += '<div class="gantt-row">';
+      rowsHtml += '<div class="gantt-label">' + task.name + '</div>';
+      rowsHtml += '<div class="gantt-track">';
+      rowsHtml += '<div class="gantt-bar" style="left:' + leftPct + '%;width:' + widthPct + '%;background:' + task.color + '">';
+      rowsHtml += '</div>';
+      rowsHtml += '</div>';
+      rowsHtml += '</div>';
+    });
+
+    // NOW marker + Ceiling milestone
+    var nowPct = (nowMonth / 12 * 100).toFixed(1);
+    var ceilingPct = (ceilingMonth / 12 * 100).toFixed(1);
+
+    var markersHtml = '<div style="position:relative;min-width:700px;height:40px;margin-left:200px">';
+    markersHtml += '<div style="position:absolute;left:' + nowPct + '%;top:0;bottom:-300px;width:2px;background:' + GHC_GOLD + ';z-index:5;opacity:0.7"></div>';
+    markersHtml += '<div style="position:absolute;left:' + nowPct + '%;top:2px;transform:translateX(-50%);font-size:10px;font-weight:700;color:' + GHC_GOLD + ';letter-spacing:0.05em;white-space:nowrap">NOW</div>';
+    markersHtml += '<div style="position:absolute;left:' + ceilingPct + '%;top:20px;transform:translateX(-50%) rotate(45deg);width:10px;height:10px;background:' + GHC_GOLD + ';z-index:4"></div>';
+    markersHtml += '<div style="position:absolute;left:' + ceilingPct + '%;top:2px;transform:translateX(-50%);font-size:9px;font-weight:700;color:' + GHC_GOLD + ';letter-spacing:0.03em;white-space:nowrap">CEILING</div>';
+    markersHtml += '</div>';
+
+    container.innerHTML = markersHtml + monthsHtml + rowsHtml;
+  }
+
+  // ---- KEYBOARD NAV ----
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var lb = document.getElementById('lightbox');
+      if (lb && lb.classList.contains('open')) {
+        window.closeLightbox();
+      }
+    }
+  });
+
+  // ---- CLOSE MOBILE MENU ON LINK CLICK ----
+  document.addEventListener('DOMContentLoaded', function() {
+    var navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        var menu = document.getElementById('navLinks');
+        if (menu) menu.classList.remove('open');
+      });
+    });
+
+    initAnimations();
+  });
+
+})();
+</script>
+
+</body>
+</html>
